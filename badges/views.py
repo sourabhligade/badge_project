@@ -16,7 +16,7 @@ def upload_badge(request):
             message="Badge validation successful"
             if validation_result:
                 # Save the validated badge to a permanent location
-                resized_img.save('badges/static/resized_image.png')
+                #resized_img.save('badges/static/resized_image.png')
                 return render(request, '/Users/sourabhligade/badge_project/badges/templates/badges/success.html')
             else:
                 return render(request, '/Users/sourabhligade/badge_project/badges/templates/badges/upload.html', {'form': form, 'error_message': message})

@@ -20,5 +20,11 @@ def validate_badge(image):
     
     # Verify colors give a "happy" feeling
     # You can define your own criteria for what colors give a "happy" feeling
+    # Save the resized image as PNG
+    output_filename = "resized_badge.png"  # Specify the output file name
+    output_path = f"badges/static/{output_filename}"  # Construct the full file path
+    img.save(output_path, format="PNG")
+    print("Resized image saved as PNG:", output_path)
     
     return img, True
+
