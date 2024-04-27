@@ -123,3 +123,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECURE_SSL_REDIRECT = False
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+
+# Add the path to the global static directory
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]

@@ -12,13 +12,12 @@ def upload_badge(request):
         form = BadgeUploadForm(request.POST, request.FILES)
         if form.is_valid():
             badge = request.FILES['badge']
-            validation_result, message = validate_badge(Image.open(badge))
+            resized_img, validation_result = validate_badge(Image.open(badge))
+            message="Badge validation successful"
             if validation_result:
                 # Save the validated badge to a permanent location
-                with open('static/validated_badge.png', 'wb+') as destination:
-                    for chunk in badge.chunks():
-                        destination.write(chunk)
-                return render(request, 'success.html')
+                resized_img.save('badges/static/resized_image.png')
+                return render(request, '/Users/sourabhligade/badge_project/badges/templates/badges/success.html')
             else:
                 return render(request, '/Users/sourabhligade/badge_project/badges/templates/badges/upload.html', {'form': form, 'error_message': message})
     else:
