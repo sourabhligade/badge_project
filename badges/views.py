@@ -1,25 +1,28 @@
 from django.shortcuts import render
-from PIL import Image  # Import the Image module
-
-# Create your views here.
-# badges/views.py
-from django.shortcuts import render
 from .forms import BadgeUploadForm
 from .utils import validate_badge
+from PIL import Image
 
 def upload_badge(request):
     if request.method == 'POST':
         form = BadgeUploadForm(request.POST, request.FILES)
         if form.is_valid():
             badge = request.FILES['badge']
-            resized_img, validation_result = validate_badge(Image.open(badge))
-            message="Badge validation successful"
+            uploaded_image = Image.open(badge)
+            width_before, height_before = uploaded_image.size   
+            resized_img, validation_result = validate_badge(uploaded_image)
             if validation_result:
-                # Save the validated badge to a permanent location
-                #resized_img.save('badges/static/resized_image.png')
-                return render(request, '/Users/sourabhligade/badge_project/badges/templates/badges/success.html')
+                width_after, height_after = resized_img.size
+                
+                return render(request, 'badges/success.html', {
+                    'width_before': width_before,
+                    'height_before': height_before,
+                    'width_after': width_after,
+                    'height_after': height_after
+                })
             else:
-                return render(request, '/Users/sourabhligade/badge_project/badges/templates/badges/upload.html', {'form': form, 'error_message': message})
+                return render(request, 'badges/upload.html', {'form': form, 'error_message': "Badge validation failed"})
     else:
         form = BadgeUploadForm()
-    return render(request, '/Users/sourabhligade/badge_project/badges/templates/badges/upload.html', {'form': form})
+    
+    return render(request, 'badges/upload.html', {'form': form})
