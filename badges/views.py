@@ -11,6 +11,7 @@ def upload_badge(request):
             uploaded_image = Image.open(badge)
             width_before, height_before = uploaded_image.size   
             resized_img, validation_result = validate_badge(uploaded_image)
+
             if validation_result:
                 width_after, height_after = resized_img.size
                 
