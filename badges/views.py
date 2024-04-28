@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import BadgeUploadForm
-from .utils import validate_badge
+from .utils import make_badge
 from PIL import Image
 
 def upload_badge(request):
@@ -10,7 +10,7 @@ def upload_badge(request):
             badge = request.FILES['badge']
             uploaded_image = Image.open(badge)
             width_before, height_before = uploaded_image.size   
-            resized_img, validation_result = validate_badge(uploaded_image)
+            resized_img, validation_result = make_badge(uploaded_image)
 
             if validation_result:
                 width_after, height_after = resized_img.size

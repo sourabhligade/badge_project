@@ -1,7 +1,12 @@
 from PIL import Image, ImageDraw
 import numpy as np
 
-def validate_badge(image):
+def make_badge(image):
+    '''
+    This fuction resizes the uploaded image into size 512 X 512
+    crops the image and adds circular mask and
+    adds nontransparent pixels inside the circle and finally stores the output image to disk
+    '''
     img = image.resize((512, 512))
 
     width, height = img.size
