@@ -3,12 +3,35 @@
 <html>
 <head>
     <title>Badge Upload Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;  
+        }
+        h2 {
+            color: #333;
+        }
+        .container {
+            margin: 50px auto;  
+            max-width: 600px;  
+            padding: 20px;  
+            border: 1px solid #ccc;  
+            border-radius: 10px;  
+            background-color: #f9f9f9;  
+        }
+        img {
+            max-width: 100%;  
+            margin-top: 20px;  
+        }
+    </style>
 </head>
 <body>
-    <h2>Badge Upload Successful</h2>
-    <p>Your badge has been uploaded and validated successfully.</p>
-    <p>Image dimensions before resizing: {{ width_before }} x {{ height_before }}</p>
-    <p>Image dimensions after resizing: {{ width_after }} x {{ height_after }}</p>
-    <img src="{% static 'resized_badge.png' %}" alt="resized image">
+    <div class="container">
+        <h2>Your Badge is ready!</h2>
+        <p>Your badge has been uploaded and validated successfully.</p>
+        <p>Image dimensions before resizing: {{ width_before }} x {{ height_before }}</p>
+        <p>Image dimensions after resizing: {{ width_after }} x {{ height_after }}</p>
+        <img src="{% static 'resized_badge.png' %}" alt="resized image">
+    </div>
 </body>
 </html>
