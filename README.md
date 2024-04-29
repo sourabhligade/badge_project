@@ -20,12 +20,13 @@
 5. Upload a badge image using the provided form
 
 6. View the results on the success page, which displays the badge.
+<img width="1440" alt="Screenshot 2024-04-29 at 11 33 18 PM" src="https://github.com/sourabhligade/badge_project/assets/65074119/b36cba06-aa0d-49f9-84cb-4873f3480964">
 
 
-<img width="641" alt="Screenshot 2024-04-28 at 10 49 48 PM" src="https://github.com/sourabhligade/badge_project/assets/65074119/09ebf08b-e68a-464d-8968-db82476f2496">
+<img width="1440" alt="Screenshot 2024-04-29 at 11 34 14 PM" src="https://github.com/sourabhligade/badge_project/assets/65074119/90b33b24-a0a5-4941-86cf-6479fa65682f">
 
 
-<img width="694" alt="Screenshot 2024-04-28 at 10 51 16 PM" src="https://github.com/sourabhligade/badge_project/assets/65074119/5da790cc-ea6b-4f73-95fd-2b934405a4b2">
+
 
 
 
